@@ -18,8 +18,7 @@ ORDER BY TOTAL DESC
 LIMIT 3;
 
 --4. Which city has the best customers? We would like to throw a promotional Music Festival in the city we made the most money. 
---Write a query that returns one city that has the highest sum of invoice totals. 
---Return both the city name & sum of all invoice totals
+-- (city that has the highest sum of invoice totals)
 
 SELECT SUM(TOTAL) AS SUM_SALES, BILLING_CITY FROM INVOICE
 GROUP BY BILLING_CITY
@@ -27,7 +26,6 @@ ORDER BY SUM_SALES DESC
 LIMIT 1;
 
 --5. Who is the best customer? The customer who has spent the most money will be declared the best customer. 
---Write a query that returns the person who has spent the most money
 
 SELECT CUSTOMER.CUSTOMER_ID, CUSTOMER.FIRST_NAME, CUSTOMER.LAST_NAME, SUM(INVOICE.TOTAL) 
 AS CUST_SALES FROM CUSTOMER
@@ -36,8 +34,7 @@ GROUP BY CUSTOMER.CUSTOMER_ID
 ORDER BY CUST_SALES DESC
 LIMIT 1;
 
---6. Write query to return the email, first name, last name, & Genre of all Rock Music listeners. 
---Return your list ordered alphabetically by email starting with A
+--6. Need details of all Rock Music listeners (email, first name, last name, & Genre). 
 
 SELECT DISTINCT EMAIL, FIRST_NAME, LAST_NAME FROM CUSTOMER
 JOIN INVOICE ON CUSTOMER.CUSTOMER_ID =  INVOICE.CUSTOMER_ID
@@ -49,8 +46,8 @@ WHERE TRACK_ID IN(
 )
 ORDER BY EMAIL ASC;
 
---7. Let's invite the artists who have written the most rock music in our dataset.
---Write a query that returns the Artist name and total track count of the top 10 rock bands
+--7. Need to invite the artists who have written the most rock music in our dataset
+--(Artist name and total track count of the top 10 rock bands)
 
 SELECT ARTIST.NAME, COUNT(ARTIST.NAME) AS SONGS FROM ARTIST
 JOIN ALBUM ON ARTIST.ARTIST_ID = ALBUM.ARTIST_ID
@@ -64,8 +61,8 @@ GROUP BY ARTIST.NAME
 ORDER BY SONGS DESC
 LIMIT 10;
 
---8. Return all the track names that have a song length longer than the average song length. 
---Return the Name and Milliseconds for each track. Order by the song length with the longest songs listed first
+--8. Need all the track names that have a song length longer than the average song length. 
+--(Name and Milliseconds for each track)
 
 SELECT TRACK.NAME, TRACK.MILLISECONDS FROM TRACK
 WHERE TRACK.MILLISECONDS > (
@@ -73,8 +70,8 @@ WHERE TRACK.MILLISECONDS > (
 ORDER BY TRACK.MILLISECONDS DESC;
 
 
---9. Find how much amount spent by each customer on artists? 
---Write a query to return customer name, artist name and total spent
+--9. How much amount spent by each customer on artists? 
+--(customer name, artist name and total spent)
 
 WITH BEST_SELLING_ARTIST AS (
 	SELECT ARTIST.ARTIST_ID AS ARTIST_ID, ARTIST.NAME AS ARTIST_NAME,
@@ -97,10 +94,8 @@ GROUP BY 1,2,3,4
 ORDER BY 5 DESC;
 
 
---10. We want to find out the most popular music Genre for each country. 
---We determine the most popular genre as the genre with the highest amount of purchases. 
---Write a query that returns each country along with the top Genre. 
---For countries where the maximum number of purchases is shared return all Genres
+--10. Which is the most popular music Genre for each country. 
+-- (The most popular genre is the genre with the highest amount of purchases)
 
  WITH POPULAR_GENRE AS
  (
@@ -117,9 +112,8 @@ ORDER BY 5 DESC;
  SELECT * FROM POPULAR_GENRE WHERE ROWNO <=1;
  
  
- --11. Write a query that determines the customer that has spent the most on music for each country. 
- --Write a query that returns the country along with the top customer and how much they spent. 
- --For countries where the top amount spent is shared, provide all customers who spent this amount
+ --11. Which customer has spent the most on music for each country. 
+ --(Country, Top customer and how much they spent) 
 
  WITH RECURSIVE
 	CUSTOMER_WITH_COUNTRY AS (
