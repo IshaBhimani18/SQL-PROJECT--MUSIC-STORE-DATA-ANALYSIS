@@ -34,7 +34,7 @@ GROUP BY CUSTOMER.CUSTOMER_ID
 ORDER BY CUST_SALES DESC
 LIMIT 1;
 
---6. Need details of all Rock Music listeners (email, first name, last name, & Genre). 
+--6. We need the details of all Rock Music listeners (email, first name, last name, & Genre). 
 
 SELECT DISTINCT EMAIL, FIRST_NAME, LAST_NAME FROM CUSTOMER
 JOIN INVOICE ON CUSTOMER.CUSTOMER_ID =  INVOICE.CUSTOMER_ID
@@ -46,7 +46,7 @@ WHERE TRACK_ID IN(
 )
 ORDER BY EMAIL ASC;
 
---7. Need to invite the artists who have written the most rock music in our dataset
+--7. We need to invite the artists who have written the most rock music in our dataset
 --(Artist name and total track count of the top 10 rock bands)
 
 SELECT ARTIST.NAME, COUNT(ARTIST.NAME) AS SONGS FROM ARTIST
@@ -61,7 +61,7 @@ GROUP BY ARTIST.NAME
 ORDER BY SONGS DESC
 LIMIT 10;
 
---8. Need all the track names that have a song length longer than the average song length. 
+--8. We need all the track names that have a song length longer than the average song length. 
 --(Name and Milliseconds for each track)
 
 SELECT TRACK.NAME, TRACK.MILLISECONDS FROM TRACK
@@ -70,7 +70,7 @@ WHERE TRACK.MILLISECONDS > (
 ORDER BY TRACK.MILLISECONDS DESC;
 
 
---9. How much amount spent by each customer on artists? 
+--9. Find how much amount spent by each customer on artists? 
 --(customer name, artist name and total spent)
 
 WITH BEST_SELLING_ARTIST AS (
