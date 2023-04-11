@@ -1,10 +1,11 @@
 # SQL-Projects
 
-##Project
+## Ad- hoc Insights -Music Store Analysis
+## Project
 The Online Music Store management had some questions that needed to be answered for their upcoming plans and take decisions backed-up by data.
 They need a Data Analyst to examine the dataset with SQL and help the store understand its business growth by answering these questions.
 
-##Database & Tools:
+## Database & Tools:
 Postgre SQL
 PgAdmin4
 
