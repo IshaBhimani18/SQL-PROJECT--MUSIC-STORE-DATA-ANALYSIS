@@ -13,4 +13,4 @@ Things that I've learnt from this project:
 Important SQL concepts like Subqueries, Multiple joins, CTE, Window functions, etc. to query the database.
 
 This Project is a part of Rishabh Mishra's Data Analyst Portfolio Project.
-![1](https://user-images.githubusercontent.com/115239428/231138012-9ece07a6-11a2-48c6-ace4-1b65e4d1d51a.PNG)
+
