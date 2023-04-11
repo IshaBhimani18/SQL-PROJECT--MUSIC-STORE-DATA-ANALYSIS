@@ -12,5 +12,5 @@ Postgre SQL, PgAdmin4
 
 SQL concepts like Subqueries, Multiple joins, CTE, Window functions, etc. to query the database.
 
-This Project is a part of Rishabh Mishra's Data Analyst Portfolio Project.
+(This Project is a part of Rishabh Mishra's Data Analyst Portfolio Project.)
 
